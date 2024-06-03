@@ -42,5 +42,7 @@ const typeDefs = `
     }
 
 `;
+
+module.exports = typeDefs;
 //? The '!' symbol = NOT NULL.
 //? The '[]' is used in case there are more than 1 author.
