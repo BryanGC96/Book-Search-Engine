@@ -5,7 +5,7 @@ import {
     ApolloProvider as Provider,
     createHttpLink,
 } from '@apollo/client';
-import { setContext } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context'
 
 const httpLink = createHttpLink({
     uri: '/graphql', //? URL to use when fetching operations.
