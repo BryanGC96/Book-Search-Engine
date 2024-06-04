@@ -12,7 +12,7 @@ On it, we are able to **login/signup** with a *user*, then we can navigate in th
 To prepare the application from the root, we need to open the integrated terminal, run **"npm run install"**, and then **"npm run start"**.
 
 ## Usage
-To use the application, you just need to open the provided **URL**.
+To use the application, you just need to open the provided **URL**. Go to *'signup'* inside the navbar, and create a new user; after creating a user, you are able to search for new books to add to your list.
 
 ###  Links
 - GitHub Repository:
