@@ -14,36 +14,40 @@ const resolvers = {
     Mutation: {
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
-
+      
             if (!user) {
-                throw new AuthenticationError('No user found with this email adress');
+              throw new AuthenticationError('No user found with this email address');
             }
-
+      
             const correctPw = await user.isCorrectPassword(password);
-
-            if(!correctPw) {
-                throw new AuthenticationError('Incorrect Credentials');
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
             }
+      
             const token = signToken(user);
             return { token, user };
         },
         addUser: async (parent, args) => {
             const user = await User.create(args);
             const token = signToken(user);
-            return ( token, user );
+            return { token, user };
         },
-        saveBook: async ( parent, { bookData }, context) => {
+        saveBook: async (parent, { bookData }, context) => {
+            console.log('Context user:', context.user);
+            console.log('Book data:', bookData);
             if (context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { savedBooks: bookData } },
-                    { new: true }
-                ).populate('savedBooks');
-
-                return updatedUser;
+              const updatedUser = await User.findByIdAndUpdate(
+                { _id: context.user._id },
+                { $addToSet: { savedBooks: bookData } },
+                { new: true }
+              ).populate('savedBooks');
+          
+              console.log('Updated user:', updatedUser);
+              return updatedUser;
             }
             throw new AuthenticationError('You need to be logged in!');
-        },
+          },
         removeBook: async (parent, { bookId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
