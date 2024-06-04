@@ -80,7 +80,7 @@ const startApolloServer = async () => {
     typeDefs,
     resolvers,
     context: authMiddleware,
-    cache: bounded,
+    extensions: [() => new CacheControlExtension({ defaultMaxAge: 600 })],
   });
 
   await server.start();
