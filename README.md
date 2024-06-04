@@ -15,6 +15,6 @@ To prepare the application from the root, we need to open the integrated termina
 To use the application, you just need to open the provided **URL**. Go to *'signup'* inside the navbar, and create a new user; after creating a user, you are able to search for new books to add to your list.
 
 ###  Links
-- GitHub Repository:
-- Application URL:
+- GitHub Repository: https://github.com/BryanGC96/Book-Search-Engine
+- Deployed application URL: https://book-search-engine-5xjb.onrender.com
 
